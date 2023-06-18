@@ -25,7 +25,7 @@ public class Base_de_datos {
 	GO
 
 	INSERT INTO tbDatos (UserName,Contraseña)VALUES('Star','Mark96');
-	SELECT *FROM tbSesion;
-	SELECT * from tbSesion  WHERE UserName='Star' AND Contraseña='Mark96';*/
+	SELECT *FROM tbDatos;
+	SELECT * from tbDatos  WHERE UserName='Star' AND Contraseña='Mark96';*/
     
 }
