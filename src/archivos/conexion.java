@@ -16,9 +16,9 @@ public class conexion {
     public static Connection getConexion(){
         
          //Cadena de conexión
-        String conexionUrl  = "jdbc:sqlserver://localhost:49826;" // <- Editar por su puerto de SQL
+        String conexionUrl  = "jdbc:sqlserver://localhost:50021;" // <- Editar por su puerto de SQL
                             + "databaseName=LoginRemedial;" // <- Editar por su base de datos
-                            + "user=sa;"
+                            + "user=Rical;"
                             + "password=itr2023;" 
                             + "encrypt=true;trustServerCertificate=true";
         
