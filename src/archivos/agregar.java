@@ -1,9 +1,11 @@
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package archivos;
 import java.sql.*;
+import javax.swing.JOptionPane;
 
 
 
@@ -87,6 +89,11 @@ public class agregar extends javax.swing.JFrame {
         btnLogin.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         btnLogin.setFocusPainted(false);
         btnLogin.setFocusable(false);
+        btnLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLoginActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 300, 250, 40));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
@@ -166,6 +173,36 @@ public class agregar extends javax.swing.JFrame {
         abrir.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnCrearActionPerformed
+
+    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
+        try
+        {
+             String sql = "SELECT * from tbDatos  WHERE UserName=? AND Contraseña=?;";
+             PreparedStatement con = conexion.getConexion().prepareStatement(sql);
+             con.setString(1, txtName.getText());
+             con.setString(2, txtPassword.getText());
+             ResultSet rs =con.executeQuery();
+             if(rs.next())
+             {
+                 JOptionPane.showMessageDialog(null,"Sesión marcada exítosamente");
+             }
+             else
+             {
+                 JOptionPane.showMessageDialog(null,"Los datos no son correctos");
+             }
+            
+        }
+        catch(Exception e)
+        {
+            Object sql = null;
+            JOptionPane.showMessageDialog(null,sql);
+            JOptionPane.showMessageDialog(null, "No hay conexion a la base de datos");
+            JOptionPane.showMessageDialog(null, e);
+        }
+                
+       
+        
+    }//GEN-LAST:event_btnLoginActionPerformed
 
     /**
      * @param args the command line arguments
