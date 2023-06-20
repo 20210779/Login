@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package archivos;
+import java.sql.*;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -127,6 +129,32 @@ public class registro extends javax.swing.JFrame {
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         // TODO add your handling code here:
+        String sentencia = "INSERT INTO tbDatos VALUES (?,?);";
+        
+        try 
+        {
+            if (txtUsuario.getText().length()== 0 && txtContra.getText().length()== 0) {
+                JOptionPane.showMessageDialog(this, "Ingrese datos validos");
+            }
+            
+            else
+            {
+            PreparedStatement addRegistro = conexion.getConexion().prepareStatement(sentencia);
+            addRegistro.setString(1,txtUsuario.getText());
+            addRegistro.setString(2,txtContra.getText());
+            addRegistro.executeUpdate();
+            
+            txtUsuario.setText("");
+            txtContra.setText("");
+            
+            JOptionPane.showMessageDialog(this, "Usuario agregado exitosamente");
+            } 
+        } 
+        catch (SQLException ex) 
+        {
+            
+            JOptionPane.showMessageDialog(this, ex.toString());
+        }
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
