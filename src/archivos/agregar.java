@@ -45,7 +45,6 @@ public class agregar extends javax.swing.JFrame {
         txtPassword = new javax.swing.JPasswordField();
         btnLogin = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        jCheckBox1 = new javax.swing.JCheckBox();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         btnCrear = new javax.swing.JButton();
@@ -103,23 +102,6 @@ public class agregar extends javax.swing.JFrame {
         jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 60, 200, 40));
 
-        jCheckBox1.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox1.setFont(new java.awt.Font("Segoe UI Emoji", 0, 12)); // NOI18N
-        jCheckBox1.setForeground(new java.awt.Color(0, 0, 0));
-        jCheckBox1.setText("Recordame");
-        jCheckBox1.setActionCommand("Recuerdame");
-        jCheckBox1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jCheckBox1.setContentAreaFilled(false);
-        jCheckBox1.setIconTextGap(3);
-        jCheckBox1.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        jCheckBox1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 270, -1, 20));
-
         jLabel4.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -163,10 +145,6 @@ public class agregar extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox1ActionPerformed
-
     private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
         // TODO add your handling code here:
         registro abrir = new registro();
@@ -185,6 +163,8 @@ public class agregar extends javax.swing.JFrame {
              if(rs.next())
              {
                  JOptionPane.showMessageDialog(null,"Sesión marcada exítosamente");
+                 txtName.setText("");
+                 txtPassword.setText("");
              }
              else
              {
@@ -244,7 +224,6 @@ public class agregar extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCrear;
     private javax.swing.JButton btnLogin;
-    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
